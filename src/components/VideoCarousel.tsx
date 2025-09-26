@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Shield, Heart, Zap, Home, Brain, Settings, CheckCircle, Moon } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Shield, Heart, Zap, Home, Brain, Settings, CheckCircle, Moon, Cpu } from 'lucide-react';
 
 interface VideoItem {
   id: number;
@@ -38,7 +38,7 @@ const VideoCarousel = () => {
     {
       id: 3,
       videoUrl: '/media/video 1.mp4',
-      icon: Brain,
+      icon: Cpu,
       title: 'Полный Контроль',
       subtitle: 'Изучает ваши привычки',
       description: 'ИИ анализирует рутину и поведенческие особенности, адаптируя дом под ваши желания. Персонализированный комфорт без усилий.',

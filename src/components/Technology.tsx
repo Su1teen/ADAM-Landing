@@ -108,22 +108,8 @@ const Technology = () => {
           {/* AI Processing */}
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center lg:grid-flow-col-dense">
             <div className="lg:col-start-2 space-y-6 sm:space-y-8">
-              <div className="w-16 sm:w-18 md:w-20 h-16 sm:h-18 md:h-20 relative rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 overflow-hidden group">
-                {/* Multiple layered glass effects for liquid appearance */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent rounded-2xl" />
-                <div className="absolute inset-0 bg-gradient-to-tl from-white/20 via-transparent to-white/10 rounded-2xl" />
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-purple to-accent-cyan opacity-15 group-hover:opacity-25 transition-all duration-500 rounded-2xl" />
-                <div className="absolute inset-0 bg-gradient-to-tl from-accent-purple to-accent-cyan opacity-10 group-hover:opacity-20 transition-all duration-500 rounded-2xl" />
-                
-                {/* Glass reflection effect */}
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/25 to-transparent rounded-t-2xl" />
-                <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-white/15 to-transparent rounded-br-2xl" />
-                
-                {/* Shadow and backdrop blur */}
-                <div className="absolute inset-0 backdrop-blur-xl rounded-2xl" />
-                <div className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-white/30 transition-all duration-300" />
-                
-                <Cpu className="w-full h-full text-white relative z-20 filter drop-shadow-lg" />
+              <div className="w-16 sm:w-18 md:w-20 h-16 sm:h-18 md:h-20 bg-white rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 overflow-hidden group flex items-center justify-center">
+                <Cpu className="w-full h-full text-black relative z-20 filter drop-shadow-lg" />
               </div>
               
               <div>
@@ -167,8 +153,8 @@ const Technology = () => {
               </div>
               
               <div className="relative z-10 text-center">
-                <div className="flex items-center justify-center w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-gradient-to-r from-accent-purple to-accent-cyan rounded-full mx-auto mb-6 sm:mb-8 animate-glow-pulse">
-                  <Cpu className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-white" />
+                <div className="flex items-center justify-center w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-white rounded-full mx-auto mb-6 sm:mb-8 animate-glow-pulse">
+                  <Cpu className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-black" />
                 </div>
                 <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">Производительность ИИ</h4>
                 
