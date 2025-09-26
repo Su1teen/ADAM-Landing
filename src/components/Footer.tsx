@@ -108,7 +108,8 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:ml-8">
-              <input 
+              <input
+               
                 type="email" 
                 placeholder="Ваши контакты"
                 className="glass border border-glass-border/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 bg-transparent text-sm sm:text-base text-foreground placeholder:text-foreground-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 flex-1 min-w-0"
