@@ -47,6 +47,7 @@ const VideoCarousel = () => {
     {
       id: 4,
       videoUrl: '/media/video 3.mp4',
+      
       icon: Settings,
       title: 'Персонализация',
       subtitle: 'Ваш дом - Ваши правила.',
