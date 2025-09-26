@@ -170,6 +170,35 @@ const VoiceAssistantSection = () => {
                 key={capability.title}
                 className="glass rounded-2xl p-6 sm:p-8 border-2 border-glass-border/40 hover:border-glass-border/60 transition-all duration-300 group relative overflow-hidden"
               >
+                {/* Revolving Circles with Blurred Edges for Outline Emphasis */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden -z-10">
+                  {/* Large revolving circle - dark blue */}
+                  <div className={`absolute top-1/2 left-1/2 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse group-hover:animate-spin-slow`} 
+                       style={{ 
+                         animationDuration: '20s',
+                         animationIterationCount: 'infinite',
+                         transformOrigin: 'center'
+                       }}></div>
+                  
+                  {/* Medium revolving circle - white */}
+                  <div className={`absolute top-1/3 right-1/4 w-40 h-40 rounded-full bg-white/5 blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse group-hover:animate-spin-slow`}
+                       style={{ 
+                         animationDuration: '25s',
+                         animationIterationCount: 'infinite',
+                         animationDelay: '1s',
+                         transformOrigin: 'center'
+                       }}></div>
+                  
+                  {/* Small revolving circle - dark blue */}
+                  <div className={`absolute bottom-1/4 left-1/3 w-24 h-24 rounded-full bg-blue-500/15 blur-2xl -translate-x-1/2 -translate-y-1/2 animate-pulse group-hover:animate-spin-slow`}
+                       style={{ 
+                         animationDuration: '30s',
+                         animationIterationCount: 'infinite',
+                         animationDelay: '2s',
+                         transformOrigin: 'center'
+                       }}></div>
+                </div>
+                
                 {/* Subtle background accent */}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${capability.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300 rounded-full -translate-y-8 translate-x-8`} />
                 
@@ -183,7 +212,7 @@ const VoiceAssistantSection = () => {
                     
                     {/* Animated liquid shimmer effect */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
                     </div>
                     
                     {/* Subtle border glow */}
@@ -228,80 +257,172 @@ const VoiceAssistantSection = () => {
               </p>
             </div>
 
-            {/* Main Phone Display */}
+            {/* Main Phone Display - Ultra Premium Realistic Design */}
             <div className="relative mx-auto w-80 h-[600px] mb-8">
-              <div className="w-full h-full bg-gradient-to-b from-background-secondary to-background rounded-[3rem] border-8 border-glass-border/20 shadow-2xl overflow-hidden relative transition-all duration-500">
-                {/* Phone Frame */}
-                <div className="absolute inset-2 bg-background rounded-[2.5rem] overflow-hidden">
-                  
-                  {/* Status Bar */}
-                  <div className="h-12 bg-background-secondary/50 flex items-center justify-between px-6">
-                    <span className="text-xs text-foreground">9:41</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-4 h-2 bg-foreground/60 rounded-sm"></div>
-                      <div className="w-6 h-3 border border-foreground/60 rounded-sm">
-                        <div className="w-4 h-2 bg-green-500 rounded-sm m-0.5"></div>
-                      </div>
+              {/* Enhanced Phone Frame with Realistic Highlighting */}
+              <div className="w-full h-full relative">
+                {/* Subtle Outer Glow Effect */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-slate-400/10 via-slate-600/5 to-slate-400/10 rounded-[4rem] opacity-50 blur-3xl"></div>
+                
+                {/* Realistic Phone Border - Multi-layer with Metallic Finish */}
+                <div className="relative w-full h-full rounded-[3.2rem] p-1 shadow-2xl" 
+                     style={{
+                       background: 'conic-gradient(from 0deg at 50% 50%, rgba(148, 163, 184, 0.7) 0deg, rgba(71, 85, 105, 0.8) 90deg, rgba(148, 163, 184, 0.7) 180deg, rgba(71, 85, 105, 0.8) 270deg, rgba(148, 163, 184, 0.7) 360deg)'
+                     }}>
+                  {/* Metallic Bezel Effect with Better Depth */}
+                  <div className="absolute inset-0 rounded-[3.1rem] p-0.5">
+                    <div className="w-full h-full rounded-[3rem] relative overflow-hidden">
+                      {/* Multi-layered metallic gradient for realistic finish */}
+                      <div className="absolute inset-0 rounded-[3rem]"
+                           style={{
+                             background: 'linear-gradient(145deg, rgba(203, 213, 225, 0.8) 0%, rgba(148, 163, 184, 0.6) 25%, rgba(100, 116, 139, 0.7) 50%, rgba(71, 85, 105, 0.8) 75%, rgba(203, 213, 225, 0.8) 100%)'
+                           }}></div>
+                      {/* Subtle reflection highlight */}
+                      <div className="absolute top-0 left-1/4 w-1/2 h-8 rounded-[3rem] bg-gradient-to-b from-white/20 to-transparent"></div>
+                      <div className="absolute bottom-0 right-1/3 w-1/3 h-6 rounded-[3rem] bg-gradient-to-t from-white/10 to-transparent"></div>
                     </div>
                   </div>
-
-                  {/* App Interface */}
-                  <div className="p-6 h-full bg-gradient-to-b from-background to-background-secondary">
-                    <div className="text-center mb-6">
-                      <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg border border-glass-border/10">
-                        {React.createElement(phoneInterfaces[activePhoneIndex].icon, { className: "w-8 h-8 text-black" })}
+                  
+                  {/* Phone Body with Deep Black Finish */}
+                  <div className="w-full h-full rounded-[3rem] p-1 relative overflow-hidden">
+                    {/* Deep Black Base with Subtle Texture */}
+                    <div className="w-full h-full rounded-[2.9rem] bg-gradient-to-br from-slate-950 via-black to-slate-900 relative shadow-inner">
+                      {/* Subtle Texture Overlay */}
+                      <div className="absolute inset-0 rounded-[2.9rem] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-slate-900/20 to-transparent"></div>
+                      
+                      {/* Edge Highlight for Depth */}
+                      <div className="absolute inset-0 rounded-[2.9rem] bg-[conic-gradient(from_45deg_at_50%_50%,_transparent_0deg,_rgba(255,255,255,0.03)_90deg,_transparent_180deg,_rgba(255,255,255,0.03)_270deg,_transparent_360deg)]"></div>
+                      
+                      {/* Realistic Notch with Camera */}
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-8 bg-black rounded-b-3xl z-30 border-x-2 border-b-2 border-slate-800/80">
+                        <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-20 h-1.5 bg-slate-700 rounded-full"></div>
+                        <div className="absolute top-2.5 right-6 w-2.5 h-2.5 bg-slate-800 rounded-full border border-slate-600"></div>
+                        <div className="absolute top-3 right-6 w-1.5 h-1.5 bg-slate-600 rounded-full"></div>
                       </div>
-                      <h3 className="text-lg font-medium text-foreground mb-2">{phoneInterfaces[activePhoneIndex].interface.header}</h3>
-                    </div>
-
-                    {/* Dynamic Interface Content */}
-                    <div className="space-y-3">
-                      {phoneInterfaces[activePhoneIndex].interface.content.map((item, index) => (
-                        <div 
-                          key={index} 
-                          className={`rounded-2xl p-4 transition-all duration-300 hover:bg-glass-strong ${
-                            item.isNew ? 'bg-accent-blue/10 border border-accent-blue/30 animate-pulse' :
-                            item.isSuggestion ? 'bg-accent-purple/10 border border-accent-purple/30' :
-                            'bg-glass'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">{item.icon}</span>
-                              <div>
-                                <p className={`text-sm font-medium ${
-                                  item.isNew ? 'text-accent-blue' :
-                                  item.isSuggestion ? 'text-accent-purple' :
-                                  'text-foreground'
-                                }`}>{item.name}</p>
-                                {item.time && (
-                                  <div className="flex items-center gap-2">
-                                    <p className="text-xs text-foreground-muted">{item.time}</p>
-                                    {item.status && (
-                                      <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">
-                                        {item.status}
-                                      </span>
-                                    )}
-                                  </div>
-                                )}
-                                {item.preview && <p className="text-xs text-foreground-muted">{item.preview}</p>}
-                              </div>
-                            </div>
-                            <div className="flex flex-col items-end gap-1">
-                              {item.status && !item.time && <span className="text-xs text-accent-blue">{item.status}</span>}
-                              {item.value && <span className="text-sm font-medium text-foreground">{item.value}</span>}
-                              {item.isNew && <span className="text-xs text-accent-blue font-medium">Новое</span>}
-                              {item.isSuggestion && <span className="text-xs text-accent-purple font-medium">Предложение</span>}
+                      
+                      {/* Enhanced Dark Status Bar */}
+                      <div className="h-12 bg-gradient-to-r from-black/90 via-slate-950/90 to-black/90 backdrop-blur-xl flex items-center justify-between px-6 pt-3 relative z-20 border-b border-slate-800/20">
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs font-semibold text-slate-300">9:41</span>
+                          <div className="flex items-center gap-1">
+                            <div className="w-1 h-1 bg-slate-500 rounded-full"></div>
+                            <div className="w-1 h-1 bg-slate-600 rounded-full"></div>
+                            <div className="w-1 h-1 bg-slate-700 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-0.5">
+                            <div className="w-1 h-2.5 bg-slate-400 rounded-sm"></div>
+                            <div className="w-1 h-3.5 bg-slate-300 rounded-sm"></div>
+                            <div className="w-1 h-3 bg-slate-400 rounded-sm"></div>
+                            <div className="w-1 h-2 bg-slate-500 rounded-sm"></div>
+                          </div>
+                          <div className="w-6 h-3 border border-slate-600 rounded-sm relative">
+                            <div className="w-4 h-2 bg-slate-700 rounded-sm m-0.5 relative">
+                              <div className="absolute inset-0 bg-gradient-to-r from-slate-600 to-slate-800 rounded-sm"></div>
                             </div>
                           </div>
                         </div>
-                      ))}
+                      </div>
+
+                      
+                      {/* Enhanced App Interface */}
+                      <div className="p-4 h-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative">
+                        {/* App Header with Dynamic Gradient */}
+                        <div className="text-center mb-6 pt-2">
+                          <div className={`w-20 h-20 bg-gradient-to-br ${phoneInterfaces[activePhoneIndex].gradient} rounded-3xl mx-auto mb-4 flex items-center justify-center shadow-2xl border border-white/10 relative overflow-hidden`}>
+                            {/* Icon Glow Effect */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${phoneInterfaces[activePhoneIndex].gradient} opacity-30 blur-xl`}></div>
+                            {React.createElement(phoneInterfaces[activePhoneIndex].icon, { className: "w-10 h-10 text-white relative z-10 filter drop-shadow-lg" })}
+                          </div>
+                          <h3 className="text-xl font-bold text-slate-100 mb-1">{phoneInterfaces[activePhoneIndex].interface.header}</h3>
+                          <p className="text-xs text-slate-500 opacity-70">{phoneInterfaces[activePhoneIndex].description}</p>
+                        </div>
+
+                        {/* Enhanced Dynamic Interface Content */}
+                        <div className="space-y-2 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-800/50">
+                          {phoneInterfaces[activePhoneIndex].interface.content.map((item, index) => (
+                            <div 
+                              key={index} 
+                              className={`rounded-2xl p-4 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer relative overflow-hidden group ${
+                                item.isNew ? 'bg-gradient-to-r from-blue-950/30 to-cyan-950/30 border border-blue-600/10 shadow-lg shadow-blue-600/5' :
+                                item.isSuggestion ? 'bg-gradient-to-r from-purple-950/30 to-pink-950/30 border border-purple-600/10 shadow-lg shadow-purple-600/5' :
+                                'bg-gradient-to-r from-slate-900/40 to-slate-800/40 border border-slate-700/15 hover:border-slate-600/25'
+                              }`}
+                            >
+                              {/* Background Shimmer Effect */}
+                              <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700">
+                                <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent -skew-x-12 animate-shimmer`}></div>
+                              </div>
+                              
+                              <div className="flex items-center justify-between relative z-10">
+                                <div className="flex items-center gap-4">
+                                  <div className="text-2xl filter drop-shadow-lg">{item.icon}</div>
+                                  <div>
+                                    <p className={`text-sm font-semibold ${
+                                      item.isNew ? 'text-blue-400' :
+                                      item.isSuggestion ? 'text-purple-400' :
+                                      'text-slate-300'
+                                    }`}>{item.name}</p>
+                                    {item.time && (
+                                      <div className="flex items-center gap-2 mt-1">
+                                        <p className="text-xs text-slate-600">{item.time}</p>
+                                        {item.status && (
+                                          <span className="text-xs bg-slate-800/40 text-slate-400 px-2 py-1 rounded-full border border-slate-600/20">
+                                            {item.status}
+                                          </span>
+                                        )}
+                                      </div>
+                                    )}
+                                    {item.preview && <p className="text-xs text-slate-600 mt-1">{item.preview}</p>}
+                                  </div>
+                                </div>
+                                <div className="flex flex-col items-end gap-1">
+                                  {item.status && !item.time && (
+                                    <span className={`text-xs font-medium px-2 py-1 rounded-full ${
+                                      item.status.includes('°C') ? 'bg-slate-800/40 text-orange-500 border border-orange-600/20' :
+                                      'bg-slate-800/40 text-slate-400 border border-slate-600/20'
+                                    }`}>{item.status}</span>
+                                  )}
+                                  {item.value && (
+                                    <span className="text-sm font-bold text-slate-300 bg-slate-800/50 px-2 py-1 rounded-lg border border-slate-700/20">
+                                      {item.value}
+                                    </span>
+                                  )}
+                                  {item.isNew && (
+                                    <div className="flex items-center gap-1">
+                                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                                      <span className="text-xs text-blue-400 font-semibold">Новое</span>
+                                    </div>
+                                  )}
+                                  {item.isSuggestion && (
+                                    <div className="flex items-center gap-1">
+                                      <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                                      <span className="text-xs text-purple-400 font-semibold">Ева</span>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Bottom Action Bar */}
+                        <div className="absolute bottom-4 left-4 right-4 bg-slate-900/70 backdrop-blur-xl rounded-2xl p-3 border border-slate-700/20">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                              <span className="text-xs text-slate-400">Ева активна</span>
+                            </div>
+                            <div className="text-xs text-slate-500">
+                              {phoneInterfaces[activePhoneIndex].interface.content.length} элементов
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl"></div>
               </div>
             </div>
 

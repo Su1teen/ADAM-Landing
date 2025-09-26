@@ -107,11 +107,57 @@
     }
   }
 
+  /* Enhanced Shimmer animation for phone interface with darker theme */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-12deg);
+    }
+  }
+  
+  /* Slow spin animation for revolving circles */
+  @keyframes spin-slow {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
   .animate-scroll-infinite {
     animation: scroll-infinite 30s linear infinite;
   }
 
+  .animate-shimmer {
+    animation: shimmer 2s ease-out;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
   .animate-pause:hover {
     animation-play-state: paused;
+  }
+  
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsla(215, 20%, 10%, 0.5);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsla(215, 20%, 30%, 0.5);
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsla(215, 20%, 40%, 0.7);
   }
 }
