@@ -102,7 +102,7 @@ const Footer = () => {
         <div className="glass-strong rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16">
           <div className="text-center md:text-left md:flex md:items-center md:justify-between">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-xl sm:text-2xl font-light mb-2">Будь в Курсе Новинок</h3>
+              <h3 className="text-xl sm:text-2xl font-light mb-2">Будьте в Курсе Новинок</h3>
               <p className="text-sm sm:text-base text-foreground-muted">
                 Будьте в курсе новых функции и новинок в сфере личного асисстента и умного дома. Инновации в ИИ начинаются здесь. 
               </p>
