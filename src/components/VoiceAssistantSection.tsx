@@ -168,7 +168,7 @@ const VoiceAssistantSection = () => {
             {capabilities.map((capability, index) => (
               <div 
                 key={capability.title}
-                className="glass rounded-2xl p-6 sm:p-8 border border-glass-border/20 hover:border-glass-border/40 transition-all duration-300 group relative overflow-hidden"
+                className="glass rounded-2xl p-6 sm:p-8 border-2 border-glass-border/40 hover:border-glass-border/60 transition-all duration-300 group relative overflow-hidden"
               >
                 {/* Subtle background accent */}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${capability.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300 rounded-full -translate-y-8 translate-x-8`} />

@@ -14,7 +14,7 @@ const CallToAction = () => {
         {/* Main CTA */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
-            Готовы Жить <span className="text-gradient">Умнее</span>?
+            Ваш <span className="text-gradient">Умный</span> Дом
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
             Присоединяйтесь к более чем 50,000 умных систем, уже испытывающих будущее домашней автоматизации и персональных ассистентов на базе ИИ.

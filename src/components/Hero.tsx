@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
           <spline-viewer 
             url="https://prod.spline.design/Sq-I7umwgmMdCpGt/scene.splinecode"
-            style={{width: '100%', height: '100%', opacity: '0.965'}}
+            style={{width: '100%', height: '100%', opacity: '0.90'}}
           />
         </div>
       </div>
@@ -34,6 +34,8 @@ const Hero = () => {
             style={{filter: 'drop-shadow(0 0 30px rgba(0,0,0,0.9)) drop-shadow(0 0 15px rgba(0,0,0,1)) drop-shadow(0 2px 4px rgba(0,0,0,0.8))'}} 
           />
         </div>
+
+      
         
  
         {/*

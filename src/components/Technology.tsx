@@ -29,12 +29,12 @@ const Technology = () => {
               
               <div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
-                  <span className="text-gradient">Защита Как</span><br />Крепость
+                  <span className="text-gradient">Безопасность Ваших</span><br />Данных
                 </h3>
                 <p className="text-lg sm:text-xl text-foreground-muted leading-relaxed mb-6 sm:mb-8">
-                  Ваша конфиденциальность и безопасность — не просто функции, а основа всего, что делает ADAM. 
-                  Каждая частица данных зашифрована, каждое соединение защищено, а ваша личная информация 
-                  никогда не покидает ваш контроль.
+                  Безопасность вашего умного дома обеспечивается многоуровневой системой защиты. 
+                  Мы применяем надежные методы шифрования и строгие протоколы безопасности для обеспечения 
+                  полной конфиденциальности ваших данных и защиты домашней инфраструктуры.
                 </p>
               </div>
 
@@ -42,22 +42,22 @@ const Technology = () => {
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
-                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Шифрование от Конца до Конца</div>
-                    <div className="text-sm sm:text-base text-foreground-muted">Военное шифрование AES-256 защищает все данные при передаче и хранении</div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Профессиональное Шифрование</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Применение стандарта AES-256 обеспечивает максимальную защиту всех данных вашего умного дома</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
                     <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Локальная Обработка Данных</div>
-                    <div className="text-sm sm:text-base text-foreground-muted">Конфиденциальные данные остаются на ваших устройствах, никогда не передаются на внешние серверы</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Конфиденциальная информация обрабатывается исключительно в пределах вашего дома, исключая внешние утечки</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
-                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Архитектура Нулевого Доверия</div>
-                    <div className="text-sm sm:text-base text-foreground-muted">Каждое устройство и соединение проверяется перед предоставлением доступа</div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Система Нулевого Доверия</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Каждое подключение к вашей домашней сети проходит строгую проверку подлинности перед получением доступа</div>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ const Technology = () => {
               
               <div className="relative z-10 text-center">
                 <Shield className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 text-primary mx-auto mb-6 sm:mb-8" />
-                <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">Панель Безопасности</h4>
+                <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">Центр Безопасности</h4>
                 
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
@@ -94,7 +94,7 @@ const Technology = () => {
                 
                 <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
                   <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <span className="text-xs sm:text-sm">Обнаружение Угроз</span>
+                    <span className="text-xs sm:text-sm">Мониторинг Угроз</span>
                     <span className="text-xs text-accent-blue">Активно</span>
                   </div>
                   <div className="w-full bg-glass-bg rounded-full h-2">
@@ -131,9 +131,7 @@ const Technology = () => {
                   <span className="text-gradient">Гибридная ИИ</span><br />Обработка
                 </h3>
                 <p className="text-lg sm:text-xl text-foreground-muted leading-relaxed mb-6 sm:mb-8">
-                  Идеальный баланс облачного интеллекта и локальных вычислений. Мгновенные ответы 
-                  для критических действий при использовании мощной вычислительной мощности для сложного обучения 
-                  и задач оптимизации.
+                  Умная система распределения вычислений. ИИ мгновенно реагирует на ежедневные потребности дома через локальную обработку, а сложные аналитические задачи решает с помощью облачных технологий.
                 </p>
               </div>
 
@@ -177,7 +175,7 @@ const Technology = () => {
                 <div className="space-y-3 sm:space-y-4">
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-left">
                     <div className="flex justify-between items-center mb-1 sm:mb-2">
-                      <span className="text-xs sm:text-sm">Скорость Периферийной Обработки</span>
+                      <span className="text-xs sm:text-sm">Скорость Локальной Обработки</span>
                       <span className="text-accent-purple text-xs sm:text-sm">47мс средн.</span>
                     </div>
                     <div className="w-full bg-glass-bg rounded-full h-2">
