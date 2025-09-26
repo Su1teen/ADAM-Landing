@@ -124,6 +124,16 @@ const VideoCarousel = () => {
   return (
     <section className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16 sm:mb-20 md:mb-24">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
+            Ваш <span className="text-gradient">Умный Дом</span> с нашим ИИ
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
+            Откройте для себя возможности современных технологий умного дома
+          </p>
+        </div>
+        
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Video Carousel - Left Half */}

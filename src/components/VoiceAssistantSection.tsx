@@ -108,16 +108,16 @@ const VoiceAssistantSection = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Apple-style Header */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <div className="mb-8">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
+          <div className="mb-4">
             <span className="text-lg sm:text-xl text-foreground-muted font-medium">
               Встречайте вашего нового
             </span>
           </div>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light mb-8 sm:mb-12">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light mb-4 sm:mb-6">
             Голосового Ассистента
           </h1>
-          <div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light mb-8 sm:mb-12">
+          <div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light mb-4 sm:mb-6">
             <span className="text-gradient">Ева</span>
           </div>
           <p className="text-xl sm:text-2xl md:text-3xl text-foreground-muted max-w-4xl mx-auto leading-relaxed">
@@ -125,11 +125,11 @@ const VoiceAssistantSection = () => {
           </p>
         </div>
 
-        {/* 3D Model - Full Width, No Container */}
-        <div className="flex justify-center mb-16 sm:mb-20 md:mb-24 relative">
-          <div className="w-full max-w-6xl relative h-[400px] sm:h-[500px] md:h-[600px]">
+        {/* 3D Model - Smaller and positioned after description */}
+        <div className="flex justify-center mb-12 sm:mb-16 md:mb-20 relative">
+          <div className="w-full max-w-md sm:max-w-lg md:max-w-xl relative h-[350px] sm:h-[420px] md:h-[490px]">
             <spline-viewer 
-              url="https://prod.spline.design/2DQ7q6F6eF8nAlzd/scene.splinecode"
+              url="https://prod.spline.design/wecqljf-aJRhjsaj/scene.splinecode"
               className="w-full h-full"
               style={{ background: 'transparent' }}
             />

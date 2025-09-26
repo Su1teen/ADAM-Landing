@@ -7,7 +7,6 @@ import CallToAction from "@/components/CallToAction";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
-import VoiceAgent3D from "@/components/VoiceAgent3D";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import VoiceAssistantSection from "@/components/VoiceAssistantSection";
 import { 
@@ -29,8 +28,6 @@ const Index = () => {
       <VideoCarousel />
       
       <VoiceAssistantSection />
-      
-      <VoiceAgent3D />
       
       {/* Individual Feature Spotlights - Much more breathing room */}
       {/*
