@@ -19,7 +19,7 @@ const VideoCarousel = () => {
   const videoItems: VideoItem[] = [
     {
       id: 1,
-      videoUrl: '/media/video 1.mp4',
+      videoUrl: '/media/video 4.mp4',
       icon: Shield,
       title: 'Умный Мониторинг',
       subtitle: 'Заботится о вас 24/7',
@@ -37,7 +37,7 @@ const VideoCarousel = () => {
     },
     {
       id: 3,
-      videoUrl: '/media/video 3.mp4',
+      videoUrl: '/media/video 1.mp4',
       icon: Brain,
       title: 'Полный Контроль',
       subtitle: 'Изучает ваши привычки',
@@ -46,7 +46,7 @@ const VideoCarousel = () => {
     },
     {
       id: 4,
-      videoUrl: '/media/video 4.mp4',
+      videoUrl: '/media/video 3.mp4',
       icon: Settings,
       title: 'Персонализация',
       subtitle: 'Ваш дом - Ваши правила.',
@@ -235,7 +235,7 @@ const VideoCarousel = () => {
             {isAutoPlaying && (
               <div className="flex items-center gap-3 text-sm text-foreground-muted px-4">
                 <div className="w-2 h-2 bg-accent-blue rounded-full animate-pulse" />
-                <span>Автоматическая смена через 5с</span>
+                <span></span>
               </div>
             )}
 
