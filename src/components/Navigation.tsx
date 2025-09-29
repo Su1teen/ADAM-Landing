@@ -29,8 +29,7 @@ const Navigation = () => {
   const navItems = [
     { label: "Возможности", href: "#features" },
     { label: "Технологии", href: "#technology" },
-    { label: "Цены", href: "#pricing" },
-    { label: "Поддержка", href: "#support" }
+    { label: "Контакты", href: "#contact" }
   ];
 
   return (
@@ -47,37 +46,46 @@ const Navigation = () => {
             <img src="/media/LOGO_WHITE_NO_SLOGAN.svg" alt="ADAM" className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-24" />
           </div>
 
-          {/* Desktop Navigation - Hidden on small screens */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          {/* Desktop Navigation - Centered */}
+          <div className="flex items-center space-x-6 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
                 className="text-foreground-muted hover:text-primary transition-colors duration-200 text-sm font-medium whitespace-nowrap"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector(item.href);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
                 {item.label}
               </a>
             ))}
           </div>
 
-          {/* Desktop CTA - Hidden on small screens */}
-          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-            <Button variant="ghost" size="sm" className="text-sm">
-              Войти
-            </Button>
-            <Button variant="gradient" size="sm" className="bg-white text-black hover:bg-white/90 text-sm">
-              Начать
+          {/* Desktop CTA - Only "Связаться с нами" */}
+          <div className="hidden lg:flex items-center">
+            <Button 
+              variant="gradient" 
+              size="sm" 
+              className="bg-white text-black hover:bg-white/90 text-sm"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#smart-home');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
+              Связаться с нами
             </Button>
           </div>
 
-          {/* Mobile/Tablet Menu Button and CTA */}
-          <div className="flex items-center space-x-3 lg:hidden">
-            {/* Mobile CTA - Only "Начать" button */}
-            <Button variant="gradient" size="sm" className="bg-white text-black hover:bg-white/90 text-xs sm:text-sm px-3 sm:px-4">
-              Начать
-            </Button>
-            
-            {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
+          <div className="flex items-center lg:hidden">
             <button
               className="p-2 glass rounded-lg"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -100,14 +108,33 @@ const Navigation = () => {
                   key={index}
                   href={item.href}
                   className="text-foreground-muted hover:text-primary transition-colors duration-200 text-sm font-medium py-2 border-b border-glass-border/10 last:border-b-0"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
                 >
                   {item.label}
                 </a>
               ))}
               <div className="flex flex-col space-y-2 pt-3 sm:pt-4">
-                <Button variant="ghost" size="sm" className="w-full text-sm">
-                  Войти
+                <Button 
+                  variant="gradient" 
+                  size="sm" 
+                  className="w-full text-sm"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    const element = document.querySelector('#smart-home');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                >
+                  Связаться с нами
                 </Button>
               </div>
             </div>

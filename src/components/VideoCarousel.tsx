@@ -123,7 +123,7 @@ const VideoCarousel = () => {
   };
 
   return (
-    <section className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="features" className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20 md:mb-24">

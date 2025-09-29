@@ -144,8 +144,8 @@ const Index = () => {
         demoText="Подключите ваши устройства"
       />
 */}
-      <CallToAction />
       <IntegrationsSection />
+      <CallToAction />
       <ContactSection />
       <Footer />
     </div>

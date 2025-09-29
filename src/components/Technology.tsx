@@ -2,7 +2,7 @@ import { Shield, Cloud, Cpu, Globe, CheckCircle } from "lucide-react";
 
 const Technology = () => {
   return (
-    <section className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background-secondary">
+    <section id="technology" className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background-secondary">
       <div className="max-w-7xl mx-auto">
         {/* Technology Deep Dive */}
         <div className="space-y-16 sm:space-y-24 md:space-y-32">

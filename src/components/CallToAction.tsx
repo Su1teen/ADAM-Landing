@@ -9,7 +9,7 @@ const CallToAction = () => {
   ];
 
   return (
-    <section className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8">
+    <section id="smart-home" className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Main CTA */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">

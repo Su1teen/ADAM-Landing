@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Clock, Building } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="contact" className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 sm:mb-20 md:mb-24">

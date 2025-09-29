@@ -8,7 +8,6 @@ const Footer = () => {
       links: [
         { label: "Возможности", href: "#features" },
         { label: "Технологии", href: "#technology" },
-        { label: "Демо", href: "#demo" },
       ]
     },
     {
@@ -20,7 +19,7 @@ const Footer = () => {
         { label: "Telegram", href: "https://t.me/adamnextbot", icon: FaTelegramPlane },
       ],
       links: [
-        { label: "Техническая Поддержка", href: "#support" },
+        { label: "Техническая Поддержка", href: "https://t.me/adamnextbot" },
         { label: "FAQ", href: "#faq" },
       ]
     }
@@ -38,8 +37,7 @@ const Footer = () => {
             </div>
             
             <p className="text-sm sm:text-base text-foreground-muted max-w-md leading-relaxed">
-              AI-Driven Assistant for Modernity. Transforming homes into intelligent, 
-              adaptive environments that understand and serve their occupants.
+              AI-Driven Assistant for Modernity. 
             </p>
             
             <div className="space-y-2 sm:space-y-3">
