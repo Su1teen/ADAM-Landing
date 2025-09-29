@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import ContactForm from "./ContactForm";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const lastScrollY = useRef(typeof window !== 'undefined' ? window.scrollY : 0);
 
   useEffect(() => {
@@ -72,13 +74,7 @@ const Navigation = () => {
               variant="gradient" 
               size="sm" 
               className="bg-white text-black hover:bg-white/90 text-sm"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.querySelector('#smart-home');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
+              onClick={() => setIsContactFormOpen(true)}
             >
               Связаться с нами
             </Button>
@@ -125,13 +121,9 @@ const Navigation = () => {
                   variant="gradient" 
                   size="sm" 
                   className="w-full text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
+                  onClick={() => {
                     setIsMenuOpen(false);
-                    const element = document.querySelector('#smart-home');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    setIsContactFormOpen(true);
                   }}
                 >
                   Связаться с нами
@@ -142,6 +134,12 @@ const Navigation = () => {
         )}
       </div>
   </nav>
+      
+      {/* Contact Form Modal - Outside nav for proper z-index */}
+      <ContactForm 
+        isOpen={isContactFormOpen} 
+        onClose={() => setIsContactFormOpen(false)} 
+      />
     </>
   );
 };

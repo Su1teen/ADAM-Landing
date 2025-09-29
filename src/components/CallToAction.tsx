@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import ContactForm from "./ContactForm";
 
 const CallToAction = () => {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const benefits = [
     "30-дневная бесплатная пробная версия",
     "Профессиональная установка включена", 
@@ -57,7 +60,12 @@ const CallToAction = () => {
               
               {/* Right: Action */}
               <div className="space-y-4 sm:space-y-6 order-1 md:order-2">
-                <Button variant="gradient" size="lg" className="w-full group text-base sm:text-lg h-14 sm:h-16">
+                <Button 
+                  variant="gradient" 
+                  size="lg" 
+                  className="w-full group text-base sm:text-lg h-14 sm:h-16"
+                  onClick={() => setIsContactFormOpen(true)}
+                >
                   Связаться с нами
                   <ArrowRight className="w-5 sm:w-6 h-5 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -91,6 +99,12 @@ const CallToAction = () => {
           </div>
         </div>
       </div>
+      
+      {/* Contact Form Modal */}
+      <ContactForm 
+        isOpen={isContactFormOpen} 
+        onClose={() => setIsContactFormOpen(false)} 
+      />
     </section>
   );
 };

@@ -27,7 +27,7 @@ const ContactSection = () => {
                   <Building className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-light text-foreground">Главный Офис</h3>
+                  <h3 className="text-2xl sm:text-3xl font-light text-foreground">Головной Офис</h3>
                   <p className="text-foreground-muted">Showroom компании ADAM х Smart Group Kazakhstan.</p>
                 </div>
               </div>
