@@ -1,9 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const lastScrollY = useRef(typeof window !== 'undefined' ? window.scrollY : 0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 40) {
+        // Scrolling down
+        setShowNav(true);
+      } else if (currentScrollY < lastScrollY.current && currentScrollY > 40) {
+        // Scrolling up
+        setShowNav(false);
+      } else if (currentScrollY <= 40) {
+        // Near top, always show
+        setShowNav(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { label: "Возможности", href: "#features" },
@@ -14,12 +35,13 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Invisible hover trigger area - Responsive height */}
-      <div className="fixed top-0 left-0 right-0 h-12 sm:h-16 z-40" />
-      
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-glass-border/20 opacity-0 hover:opacity-100 transition-opacity duration-300 hover:bg-background/90 group">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 glass-strong border-b border-glass-border/20 bg-background/90 transition-all duration-300 ${
+          showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8 pointer-events-none"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo - Responsive sizing */}
           <div className="flex items-center space-x-2 sm:space-x-3">
             <img src="/media/LOGO_WHITE_NO_SLOGAN.svg" alt="ADAM" className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-24" />
@@ -71,7 +93,7 @@ const Navigation = () => {
 
         {/* Mobile/Tablet Menu - Responsive */}
         {isMenuOpen && (
-          <div className="lg:hidden pb-4 sm:pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="lg:hidden pb-4 sm:pb-6 transition-opacity duration-300 opacity-100">
             <div className="flex flex-col space-y-3 sm:space-y-4 px-4 sm:px-6">
               {navItems.map((item, index) => (
                 <a
@@ -92,7 +114,7 @@ const Navigation = () => {
           </div>
         )}
       </div>
-    </nav>
+  </nav>
     </>
   );
 };
