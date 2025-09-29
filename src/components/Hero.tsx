@@ -34,6 +34,20 @@ const Hero = () => {
             style={{filter: 'drop-shadow(0 0 30px rgba(0,0,0,0.9)) drop-shadow(0 0 15px rgba(0,0,0,1)) drop-shadow(0 2px 4px rgba(0,0,0,0.8))'}} 
           />
         </div>
+        
+          {/* Future of Personal Assistants Section */}
+          <div className="mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">Будущее Персональных Ассистентов</h2>
+            <p className="text-base sm:text-lg md:text-xl text-foreground-muted max-w-2xl mx-auto mb-6">Ева объединяет управление умным домом с персональной продуктивностью, создавая единую экосистему для всех аспектов вашей жизни</p>
+            <div className="flex flex-col items-center justify-center gap-4 w-full sm:flex-row sm:gap-6 md:gap-8">
+              <div className="flex flex-col items-center justify-center bg-glass px-4 py-2 rounded-xl w-full text-center">
+                <span className="text-lg sm:text-xl font-semibold text-primary">iOS & Android</span>
+              </div>
+              <div className="flex flex-col items-center justify-center bg-glass px-4 py-2 rounded-xl w-full text-center">
+                <span className="text-lg sm:text-xl font-semibold text-primary">Облачная синхронизация</span>
+              </div>
+            </div>
+          </div>
 
       
         

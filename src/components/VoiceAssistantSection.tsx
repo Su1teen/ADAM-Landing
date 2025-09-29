@@ -477,11 +477,7 @@ const VoiceAssistantSection = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Zap className="w-6 h-6 text-accent-cyan" />
-                <span className="text-foreground">Мгновенный отклик</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Brain className="w-6 h-6 text-accent-purple" />
-                <span className="text-foreground">ИИ нового поколения</span>
+                <span className="text-foreground">Облачная синхронизация</span>
               </div>
             </div>
           </div>
