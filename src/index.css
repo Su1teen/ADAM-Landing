@@ -131,6 +131,10 @@
     animation: scroll-infinite 30s linear infinite;
   }
 
+  .animate-scroll-fast {
+    animation: scroll-infinite 30s linear infinite;
+  }
+
   .animate-shimmer {
     animation: shimmer 2s ease-out;
   }
@@ -159,6 +163,16 @@
   
   ::-webkit-scrollbar-thumb:hover {
     background: hsla(215, 20%, 40%, 0.7);
+  }
+
+  /* Hide scrollbar for swipeable containers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

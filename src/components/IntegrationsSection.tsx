@@ -1,28 +1,94 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 const IntegrationsSection = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const integrations = [
-    { name: 'Smart Group Kazakhstan', logo: '/media/smart-group-logo.png' },
-    { name: 'Iridi', logo: '/media/iridi-logo.png' },
-    { name: 'SmartThings', logo: '/media/smartthings-logo.png' },
-    { name: 'Zigbee', logo: '/media/zigbee-logo.png' },
-    { name: 'Google Cast', logo: '/media/google-cast-logo.png' },
-    { name: 'Matter', logo: '/media/matter-logo.png' },
-    { name: 'Thread', logo: '/media/thread-logo.png' },
-    { name: 'MQTT', logo: '/media/mqtt-logo.png' },
-    { name: 'KNX', logo: '/media/knx-logo.png' },
-    { name: 'Philips Hue', logo: '/media/philips-hue-logo.png' },
-    { name: 'IKEA Tradfri', logo: '/media/ikea-tradfri-logo.png' },
-    { name: 'TiS', logo: '/media/tis-logo.png' },
-    { name: 'Sunricher', logo: '/media/sunricher-logo.png' },
-    { name: 'Yandex Alisa', logo: '/media/yandex-alisa-logo.png' },
-    { name: 'Samsung', logo: '/media/samsung-logo.png' },
-    { name: 'Apple TV', logo: '/media/apple-tv-logo.png' },
-    { name: 'Spotify', logo: '/media/spotify-logo.png' }
+    { name: 'Smart Group Kazakhstan', logo: '/logos & icons/Smart Group Kazakhstan.svg' },
+    { name: 'Iridi', logo: '/logos & icons/Iridi.png' },
+    { name: 'SmartThings', logo: '/logos & icons/SmartThings.jpeg' },
+    { name: 'Zigbee', logo: '/logos & icons/Zigbee.png' },
+    { name: 'Google Cast', logo: '/logos & icons/Google Cast.png' },
+    { name: 'Matter', logo: '/logos & icons/Matter.jpg' },
+    { name: 'Thread', logo: '/logos & icons/Thread.png' },
+    { name: 'MQTT', logo: '/logos & icons/MQTT.png' },
+    { name: 'KNX', logo: '/logos & icons/KNX.png' },
+    { name: 'Philips Hue', logo: '/logos & icons/philips hue.png' },
+    { name: 'IKEA', logo: '/logos & icons/ikea.png' },
+    { name: 'TiS', logo: '/logos & icons/TIS.png' },
+    { name: 'Sunricher', logo: '/logos & icons/sunriicher.png' },
+    { name: 'Yandex Alisa', logo: '/logos & icons/yandex alisa.svg' },
+    { name: 'Samsung', logo: '/logos & icons/samsung.png' },
+    { name: 'Apple TV+', logo: '/logos & icons/apple tv plus.png' },
+    { name: 'Spotify', logo: '/logos & icons/spotify.png' }
   ];
 
   // Duplicate the array for seamless infinite scroll
-  const duplicatedIntegrations = [...integrations, ...integrations];
+  const duplicatedIntegrations = [...integrations, ...integrations, ...integrations];
+
+  // Touch event handlers for swipe functionality
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsPaused(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+    // Prevent default to improve scroll performance on mobile
+    if (Math.abs(touchStartX.current - touchEndX.current) > 10) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 30; // Reduced for better mobile sensitivity
+    
+    if (Math.abs(distance) > minSwipeDistance && scrollContainerRef.current) {
+      const scrollAmount = distance > 0 ? 150 : -150; // Optimized scroll distance
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+    
+    // Resume animation after a shorter delay
+    setTimeout(() => setIsPaused(false), 1500);
+    
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
+  // Mouse event handlers for desktop drag support
+  const handleMouseDown = (e: React.MouseEvent) => {
+    touchStartX.current = e.clientX;
+    setIsPaused(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (touchStartX.current) {
+      touchEndX.current = e.clientX;
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 100;
+    
+    if (Math.abs(distance) > minSwipeDistance && scrollContainerRef.current) {
+      const scrollAmount = distance > 0 ? 200 : -200;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+    
+    setTimeout(() => setIsPaused(false), 2000);
+    
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
 
   return (
     <section className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
@@ -33,47 +99,75 @@ const IntegrationsSection = () => {
             Полная <span className="text-gradient">Интеграция</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
-            АДАМ работает с лучшими в своем классе технологиями умного дома,
+            ADAM работает с лучшими в своем классе технологиями умного дома,
             обеспечивая беспрецедентную совместимость и функциональность
           </p>
         </div>
 
         {/* Scrolling Logos Container */}
-        <div className="relative">
-          {/* Gradient overlays for smooth fade effect */}
-          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          
+        <div className="relative overflow-hidden">
           {/* Scrolling Container */}
-          <div className="flex animate-scroll-infinite hover:animate-pause">
+          <div 
+            ref={scrollContainerRef}
+            className={`flex ${isPaused ? '' : 'animate-scroll-fast'} hover:animate-pause select-none cursor-grab active:cursor-grabbing overflow-x-auto scrollbar-hide md:overflow-hidden`}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            style={{ 
+              scrollBehavior: 'smooth',
+              WebkitOverflowScrolling: 'touch',
+              minWidth: 'max-content'
+            }}
+          >
             {duplicatedIntegrations.map((integration, index) => (
               <div
                 key={`${integration.name}-${index}`}
-                className="flex-shrink-0 mx-8 sm:mx-12 md:mx-16 group"
+                className="flex-shrink-0 mx-4 sm:mx-6 md:mx-8 lg:mx-12 group"
               >
-                <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 flex items-center justify-center transition-all duration-300 filter grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-100 transform group-hover:scale-110">
-                  {/* Fallback text if logo image doesn't exist */}
-                  <div className="w-full h-full flex items-center justify-center bg-glass-strong rounded-2xl border border-glass-border/20 p-4">
-                    <span className="text-sm sm:text-base md:text-lg font-medium text-foreground text-center leading-tight">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center transition-all duration-300 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transform group-hover:scale-110">
+                  <div className="w-full h-full flex items-center justify-center bg-glass-strong rounded-xl sm:rounded-2xl border border-glass-border/20 p-2 sm:p-3 md:p-4">
+                    <img
+                      src={integration.logo}
+                      alt={integration.name}
+                      className="w-full h-full object-contain max-w-full max-h-full"
+                      loading="lazy"
+                      onError={(e) => {
+                        console.warn(`Failed to load logo: ${integration.logo}`);
+                        // Show text fallback if image doesn't load
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        const fallback = target.nextElementSibling as HTMLElement;
+                        if (fallback) {
+                          fallback.style.display = 'flex';
+                          fallback.classList.remove('hidden');
+                        }
+                      }}
+                    />
+                    <span 
+                      className="text-xs sm:text-sm md:text-base font-medium text-foreground text-center leading-tight hidden flex items-center justify-center"
+                      style={{ display: 'none' }}
+                    >
                       {integration.name}
                     </span>
                   </div>
-                  {/* 
-                  Uncomment when logo images are available:
-                  <img
-                    src={integration.logo}
-                    alt={integration.name}
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      // Hide image and show text fallback
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  */}
                 </div>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="md:hidden text-center mt-8">
+          <p className="text-xs text-foreground-muted">
+            Проведите пальцем для прокрутки • Свайпните для быстрого перехода
+          </p>
+          <p className="text-xs text-foreground-muted/50 mt-2">
+            Всего интеграций: {integrations.length} • Отображается: {duplicatedIntegrations.length}
+          </p>
         </div>
 
         {/* Bottom Description 
