@@ -128,11 +128,11 @@
   }
 
   .animate-scroll-infinite {
-    animation: scroll-infinite 30s linear infinite;
+    animation: scroll-infinite 120s linear infinite;
   }
 
   .animate-scroll-fast {
-    animation: scroll-infinite 30s linear infinite;
+    animation: scroll-infinite 90s linear infinite;
   }
 
   .animate-shimmer {
