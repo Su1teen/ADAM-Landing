@@ -15,6 +15,11 @@ const VideoCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Touch/swipe handling
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const videoItems: VideoItem[] = [
     {
@@ -81,6 +86,65 @@ const VideoCarousel = () => {
     }
   };
 
+  // Touch event handlers for swipe functionality
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50; // Minimum distance for a swipe
+    
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0) {
+        // Swipe left - next item
+        handleNavigation('next');
+      } else {
+        // Swipe right - previous item
+        handleNavigation('prev');
+      }
+    }
+    
+    // Reset values
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
+  // Mouse event handlers for desktop drag support (optional)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    touchStartX.current = e.clientX;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (touchStartX.current) {
+      touchEndX.current = e.clientX;
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 100; // Larger distance for mouse drag
+    
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0) {
+        handleNavigation('next');
+      } else {
+        handleNavigation('prev');
+      }
+    }
+    
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   const getVideoPosition = (index: number) => {
     const diff = index - activeIndex;
     const totalVideos = videoItems.length;
@@ -139,7 +203,17 @@ const VideoCarousel = () => {
           
           {/* Video Carousel - Left Half */}
           <div className="relative">
-            <div className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
+            <div 
+              ref={containerRef}
+              className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden select-none cursor-grab active:cursor-grabbing"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
               {/* Fade out gradients on sides */}
               <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
               <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
@@ -172,15 +246,43 @@ const VideoCarousel = () => {
               <button
                 onClick={() => handleNavigation('prev')}
                 className="w-12 h-12 rounded-full glass-strong border border-glass-border/30 flex items-center justify-center hover:bg-primary/10 transition-all duration-300 group"
+                aria-label="Предыдущее видео"
               >
                 <ChevronLeft className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
               </button>
               <button
                 onClick={() => handleNavigation('next')}
                 className="w-12 h-12 rounded-full glass-strong border border-glass-border/30 flex items-center justify-center hover:bg-primary/10 transition-all duration-300 group"
+                aria-label="Следующее видео"
               >
                 <ChevronRight className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
               </button>
+            </div>
+
+            {/* Mobile Swipe Hint */}
+            <div className="sm:hidden text-center mt-4">
+              <p className="text-xs text-foreground-muted">
+                Проведите пальцем влево или вправо для смены видео
+              </p>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {videoItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setIsAutoPlaying(false);
+                    setActiveIndex(index);
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === activeIndex 
+                      ? 'bg-primary w-6' 
+                      : 'bg-foreground-muted/30 hover:bg-foreground-muted/50'
+                  }`}
+                  aria-label={`Перейти к видео ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
