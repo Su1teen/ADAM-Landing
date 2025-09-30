@@ -37,57 +37,30 @@ const IntegrationsSection = () => {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
-    // Prevent default to improve scroll performance on mobile
-    if (Math.abs(touchStartX.current - touchEndX.current) > 10) {
-      e.preventDefault();
-    }
+    // Don't prevent default to allow native scrolling on mobile
   };
 
   const handleTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return;
     
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 30; // Reduced for better mobile sensitivity
-    
-    if (Math.abs(distance) > minSwipeDistance && scrollContainerRef.current) {
-      const scrollAmount = distance > 0 ? 150 : -150; // Optimized scroll distance
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-    
-    // Resume animation after a shorter delay
-    setTimeout(() => setIsPaused(false), 1500);
+    // Resume animation after touch ends
+    setTimeout(() => setIsPaused(false), 1000);
     
     touchStartX.current = 0;
     touchEndX.current = 0;
   };
 
-  // Mouse event handlers for desktop drag support
-  const handleMouseDown = (e: React.MouseEvent) => {
-    touchStartX.current = e.clientX;
+  // Mouse event handlers for desktop hover pause
+  const handleMouseDown = () => {
     setIsPaused(true);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (touchStartX.current) {
-      touchEndX.current = e.clientX;
-    }
+  const handleMouseMove = () => {
+    // Just for hover detection on desktop
   };
 
   const handleMouseUp = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 100;
-    
-    if (Math.abs(distance) > minSwipeDistance && scrollContainerRef.current) {
-      const scrollAmount = distance > 0 ? 200 : -200;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-    
-    setTimeout(() => setIsPaused(false), 2000);
-    
-    touchStartX.current = 0;
-    touchEndX.current = 0;
+    setTimeout(() => setIsPaused(false), 1000);
   };
 
   return (
@@ -109,9 +82,8 @@ const IntegrationsSection = () => {
           {/* Scrolling Container */}
           <div 
             ref={scrollContainerRef}
-            className={`flex ${isPaused ? '' : 'animate-scroll-fast'} hover:animate-pause select-none cursor-grab active:cursor-grabbing overflow-x-auto scrollbar-hide md:overflow-hidden`}
+            className={`flex ${isPaused ? '' : 'animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide md:overflow-hidden md:select-none md:cursor-grab md:active:cursor-grabbing`}
             onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -160,15 +132,7 @@ const IntegrationsSection = () => {
           </div>
         </div>
 
-        {/* Mobile Swipe Hint */}
-        <div className="md:hidden text-center mt-8">
-          <p className="text-xs text-foreground-muted">
-            Проведите пальцем для прокрутки • Свайпните для быстрого перехода
-          </p>
-          <p className="text-xs text-foreground-muted/50 mt-2">
-            Всего интеграций: {integrations.length} • Отображается: {duplicatedIntegrations.length}
-          </p>
-        </div>
+
 
         {/* Bottom Description 
         <div className="text-center mt-16 sm:mt-20 md:mt-24">
