@@ -291,7 +291,14 @@ const VideoCarousel = () => {
             {/* Main Content Container */}
             <div 
               key={activeIndex}
-              className="glass-strong rounded-2xl p-6 sm:p-8 border border-glass-border/20 animate-in fade-in duration-700 slide-in-from-right-4"
+              className="glass-strong rounded-2xl p-6 sm:p-8 border border-glass-border/20 animate-in fade-in duration-700 slide-in-from-right-4 select-none cursor-grab active:cursor-grabbing"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
             >
               {/* Icon and Title */}
               <div className="flex items-center gap-4 mb-6">
@@ -332,6 +339,13 @@ const VideoCarousel = () => {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Mobile Swipe Hint for Text */}
+            <div className="sm:hidden text-center">
+              <p className="text-xs text-foreground-muted">
+                Проведите пальцем влево или вправо по тексту для смены контента
+              </p>
             </div>
 
             {/* Auto-play indicator */}
