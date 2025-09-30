@@ -48,8 +48,8 @@ const Navigation = () => {
             <img src="/media/LOGO_WHITE_NO_SLOGAN.svg" alt="ADAM" className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-24" />
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="flex items-center space-x-6 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop Navigation - Centered - Hidden on mobile */}
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navItems.map((item, index) => (
               <a
                 key={index}

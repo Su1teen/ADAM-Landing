@@ -78,27 +78,28 @@ const IntegrationsSection = () => {
         </div>
 
         {/* Scrolling Logos Container */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full">
           {/* Scrolling Container */}
           <div 
             ref={scrollContainerRef}
-            className={`flex ${isPaused ? '' : 'animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide md:overflow-hidden md:select-none md:cursor-grab md:active:cursor-grabbing`}
+            className={`flex ${isPaused ? '' : 'md:animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide select-none`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
+            onMouseUp={handleMouseUp}   
             onMouseLeave={handleMouseUp}
             style={{ 
               scrollBehavior: 'smooth',
               WebkitOverflowScrolling: 'touch',
-              minWidth: 'max-content'
+              minWidth: 'max-content',
+              touchAction: 'pan-x'
             }}
           >
             {duplicatedIntegrations.map((integration, index) => (
               <div
                 key={`${integration.name}-${index}`}
-                className="flex-shrink-0 mx-4 sm:mx-6 md:mx-8 lg:mx-12 group"
+                className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 lg:mx-8 group"
               >
                 <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center transition-all duration-300 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transform group-hover:scale-110">
                   <div className="w-full h-full flex items-center justify-center bg-glass-strong rounded-xl sm:rounded-2xl border border-glass-border/20 p-2 sm:p-3 md:p-4">
