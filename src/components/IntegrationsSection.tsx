@@ -2,9 +2,12 @@ import React, { useRef, useState } from 'react';
 
 const IntegrationsSection = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const mouseStartX = useRef<number>(0);
+  const scrollLeft = useRef<number>(0);
 
   const integrations = [
     { name: 'Smart Group Kazakhstan', logo: '/logos & icons/Smart Group Kazakhstan.svg' },
@@ -52,17 +55,49 @@ const IntegrationsSection = () => {
     touchEndX.current = 0;
   };
 
-  // Mouse event handlers for desktop hover pause
-  const handleMouseDown = () => {
+  // Mouse event handlers for desktop drag-scroll
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
     setIsPaused(true);
+    mouseStartX.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeft.current = scrollContainerRef.current.scrollLeft;
+    scrollContainerRef.current.style.cursor = 'grabbing';
   };
 
-  const handleMouseMove = () => {
-    // Just for hover detection on desktop
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - mouseStartX.current) * 2; // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
   const handleMouseUp = () => {
-    setTimeout(() => setIsPaused(false), 1000);
+    setIsDragging(false);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.cursor = 'grab';
+    }
+    setTimeout(() => setIsPaused(false), 1500);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.style.cursor = 'grab';
+      }
+      setTimeout(() => setIsPaused(false), 1500);
+    }
+  };
+
+  // Mouse wheel handler for horizontal scroll
+  const handleWheel = (e: React.WheelEvent) => {
+    if (!scrollContainerRef.current) return;
+    e.preventDefault();
+    setIsPaused(true);
+    scrollContainerRef.current.scrollLeft += e.deltaY;
+    setTimeout(() => setIsPaused(false), 1500);
   };
 
   return (
@@ -84,18 +119,20 @@ const IntegrationsSection = () => {
           {/* Scrolling Container */}
           <div 
             ref={scrollContainerRef}
-            className={`flex items-center ${isPaused ? '' : 'md:animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide select-none`}
+            className={`flex items-center ${isPaused ? '' : 'md:animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}   
-            onMouseLeave={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            onWheel={handleWheel}
             style={{ 
-              scrollBehavior: 'smooth',
+              scrollBehavior: isDragging ? 'auto' : 'smooth',
               WebkitOverflowScrolling: 'touch',
               minWidth: 'max-content',
-              touchAction: 'pan-x'
+              touchAction: 'pan-x',
+              userSelect: 'none'
             }}
           >
             {duplicatedIntegrations.map((integration, index) => (
