@@ -15,8 +15,9 @@ const Hero = () => {
       </div>
       
       {/* Spline 3D Viewer - Responsive sizing and positioning */}
-      <div className="absolute inset-0 flex items-center justify-center z-20" style={{paddingTop: 'clamp(15vh, 25vh, 30vh)'}}>
-        <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
+      {/* All devices: Robot positioned at bottom */}
+      <div className="absolute inset-0 flex items-end justify-center z-20">
+        <div className="w-full sm:w-full h-[500px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl sm:translate-x-0 lg:translate-y-36 xl:translate-y-36">
           <spline-viewer 
             url="https://prod.spline.design/FGHilIWJTrU0w1aP/scene.splinecode"
             style={{width: '100%', height: '100%', opacity: '0.90'}}
@@ -24,13 +25,14 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center min-h-screen">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-start sm:justify-center min-h-screen pt-60 sm:pt-0">
         {/* Main Logo - ADAM - Responsive sizing */}
+        {/* Mobile: top with margin, Desktop/Tablet: centered in middle */}
         <div className="mb-6 sm:mb-8">
           <img 
             src="/media/LOGO_WHITE_NO_SLOGAN.svg" 
             alt="ADAM Logo" 
-            className="h-20 sm:h-24 md:h-32 lg:h-40 xl:h-48 mx-auto drop-shadow-2xl"
+            className="h-16 sm:h-24 md:h-32 lg:h-40 xl:h-48 mx-auto drop-shadow-2xl"
             style={{filter: 'drop-shadow(0 0 30px rgba(0,0,0,0.9)) drop-shadow(0 0 15px rgba(0,0,0,1)) drop-shadow(0 2px 4px rgba(0,0,0,0.8))'}} 
           />
         </div>
@@ -89,7 +91,7 @@ const Hero = () => {
         <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 glass-strong rounded-full text-xs sm:text-sm text-foreground backdrop-blur-lg border border-primary/20" style={{background: 'rgba(0,0,0,0.6)'}}>
           <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-pulse" />
           <span className="hidden xs:inline sm:hidden md:inline">Your Friendly Home Assistant</span>
-          <span className="inline xs:hidden sm:inline md:hidden">ADAM Assistant</span>
+          <span className="inline xs:hidden sm:inline md:hidden">Your Friendly Home Assistant</span>
         </div>
       </div>
     </section>
