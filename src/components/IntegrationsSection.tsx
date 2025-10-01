@@ -28,6 +28,8 @@ const IntegrationsSection = () => {
 
   // Duplicate the array for seamless infinite scroll
   const duplicatedIntegrations = [...integrations, ...integrations, ...integrations];
+  // Logos to shrink by ~20-30%
+  const smallLogos = ['KNX', 'Smart Group Kazakhstan', 'TiS', 'Yandex Alisa'];
 
   // Touch event handlers for swipe functionality
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -82,7 +84,7 @@ const IntegrationsSection = () => {
           {/* Scrolling Container */}
           <div 
             ref={scrollContainerRef}
-            className={`flex ${isPaused ? '' : 'md:animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide select-none`}
+            className={`flex items-center ${isPaused ? '' : 'md:animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide select-none`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
@@ -97,11 +99,18 @@ const IntegrationsSection = () => {
             }}
           >
             {duplicatedIntegrations.map((integration, index) => (
-              <div
-                key={`${integration.name}-${index}`}
-                className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 lg:mx-8 group"
-              >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 flex items-center justify-center transition-all duration-300 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transform group-hover:scale-110">
+                <div
+                  key={`${integration.name}-${index}`}
+                  className="flex-shrink-0 mx-2 sm:mx-4 md:mx-6 lg:mx-8 group"
+                >
+                  <div
+                    className={`
+                      ${smallLogos.includes(integration.name)
+                        ? 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32'
+                        : 'w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40'
+                      } flex items-center justify-center transition-all duration-300 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transform group-hover:scale-110
+                    `}
+                  >
                   <div className="w-full h-full flex items-center justify-center bg-glass-strong rounded-xl sm:rounded-2xl border border-glass-border/20 p-2 sm:p-3 md:p-4">
                     <img
                       src={integration.logo}

@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail, Clock, Building } from "lucide-react";
+import { MapPin, Phone, Mail, Building, Instagram, Linkedin } from "lucide-react";
+import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 
 const ContactSection = () => {
   return (
@@ -61,15 +62,22 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <Clock className="w-6 h-6 text-accent-blue flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="text-lg font-medium text-foreground mb-1">Часы работы</div>
-                    <div className="text-foreground-muted">
-                      Пн-Пт: 9:00 - 18:00<br />
-                      Сб: 10:00 - 16:00<br />
-                      Вс: По предварительной записи
-                    </div>
+                {/* Наши социальные сети */}
+                <div className="mt-8">
+                  <h3 className="text-lg font-medium text-foreground mb-4">Наши социальные сети:</h3>
+                  <div className="flex items-center gap-6">
+                    <a href="https://www.instagram.com/adamglobaltech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <Instagram className="w-6 h-6 text-accent-blue hover:text-primary transition-colors" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/adamglobaltech/about/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                      <Linkedin className="w-6 h-6 text-accent-blue hover:text-primary transition-colors" />
+                    </a>
+                    <a href="https://wa.me/+77713841361" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                      <FaWhatsapp className="w-6 h-6 text-accent-blue hover:text-primary transition-colors" />
+                    </a>
+                    <a href="https://t.me/adamnextbot" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                      <FaTelegramPlane className="w-6 h-6 text-accent-blue hover:text-primary transition-colors" />
+                    </a>
                   </div>
                 </div>
               </div>

@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute inset-0 flex items-center justify-center z-20" style={{paddingTop: 'clamp(15vh, 25vh, 30vh)'}}>
         <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
           <spline-viewer 
-            url="https://prod.spline.design/Sq-I7umwgmMdCpGt/scene.splinecode"
+            url="https://prod.spline.design/FGHilIWJTrU0w1aP/scene.splinecode"
             style={{width: '100%', height: '100%', opacity: '0.90'}}
           />
         </div>
