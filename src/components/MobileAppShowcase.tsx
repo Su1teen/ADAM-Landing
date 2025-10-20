@@ -158,47 +158,6 @@ const MobileAppShowcase = () => {
           </div>
         </div>
 
-        {/* Key Features - Enhanced Grid with Icons */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-8 sm:mb-10 md:mb-12">
-          {/* Seamless Integration */}
-          <div className="group glass rounded-xl p-4 sm:p-5 hover:glass-strong transition-all duration-300 border border-glass-border/20 hover:border-accent-purple/30">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-purple/20 to-accent-purple/10 flex items-center justify-center">
-                <Layers className="w-4 h-4 text-accent-purple" />
-              </div>
-              <h4 className="text-base sm:text-lg font-light text-gradient">Seamless Integration</h4>
-            </div>
-            <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
-              Lighting, heating, and ventilation systems—all in one solution for building energy efficiency and comfort.
-            </p>
-          </div>
-          
-          {/* Zonal Control */}
-          <div className="group glass rounded-xl p-4 sm:p-5 hover:glass-strong transition-all duration-300 border border-glass-border/20 hover:border-accent-blue/30">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue/20 to-accent-blue/10 flex items-center justify-center">
-                <Building2 className="w-4 h-4 text-accent-blue" />
-              </div>
-              <h4 className="text-base sm:text-lg font-light text-gradient">Zonal Control</h4>
-            </div>
-            <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
-              Occupancy-based zonal management: Each zone receives specific settings for heating, ventilation, and lighting.
-            </p>
-          </div>
-          
-          {/* Forecasting */}
-          <div className="group glass rounded-xl p-4 sm:p-5 hover:glass-strong transition-all duration-300 border border-glass-border/20 hover:border-accent-cyan/30">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan/20 to-accent-cyan/10 flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-accent-cyan" />
-              </div>
-              <h4 className="text-base sm:text-lg font-light text-gradient">Forecasting</h4>
-            </div>
-            <p className="text-xs sm:text-sm text-foreground-muted leading-relaxed">
-              Early detection of anomalies, incidents, and inefficient energy consumption to prevent system failures.
-            </p>
-          </div>
-        </div>
 
         {/* Two Column Layout: Mobile App Preview + Content */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
