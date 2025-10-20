@@ -13,6 +13,11 @@ interface ScreenshotItem {
 
 const MobileAppShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   const screenshots: ScreenshotItem[] = [
     {
@@ -63,6 +68,30 @@ const MobileAppShowcase = () => {
 
   const goToSlide = (index: number) => {
     setActiveIndex(index);
+  };
+
+  // Touch handlers for swipe functionality
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0); // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
   };
 
   return (
@@ -221,8 +250,13 @@ const MobileAppShowcase = () => {
                         </div>
                       </div>
 
-                      {/* Screenshot Container with smooth transitions */}
-                      <div className="relative w-full h-full overflow-hidden bg-gradient-to-br from-slate-950 to-black">
+                      {/* Screenshot Container with smooth transitions and swipe support */}
+                      <div 
+                        className="relative w-full h-full overflow-hidden bg-gradient-to-br from-slate-950 to-black touch-pan-y"
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                      >
                         {screenshots.map((screenshot, index) => (
                           <div
                             key={screenshot.id}
@@ -237,7 +271,7 @@ const MobileAppShowcase = () => {
                             <img
                               src={screenshot.image}
                               alt={screenshot.title}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover pointer-events-none"
                               style={{ objectPosition: 'top' }}
                             />
                           </div>

@@ -136,8 +136,9 @@ const IntegrationsSection = () => {
           {/* Scrolling Container */}
           <div 
             ref={scrollContainerRef}
-            className={`flex items-center ${isPaused ? '' : 'md:animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing`}
+            className={`flex items-center ${isPaused ? '' : 'animate-scroll-fast'} hover:animate-pause overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing`}
             onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
