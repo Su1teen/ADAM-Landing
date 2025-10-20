@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Shield, Heart, Zap, Home, Brain, Settings, CheckCircle, Moon, Cpu } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Building, Zap, BarChart3, ThermometerSun, CheckCircle } from 'lucide-react';
 
 interface VideoItem {
   id: number;
@@ -9,6 +9,7 @@ interface VideoItem {
   subtitle: string;
   description: string;
   features: string[];
+  category?: 'automated' | 'non-automated';
 }
 
 const VideoCarousel = () => {
@@ -21,6 +22,48 @@ const VideoCarousel = () => {
   const touchEndX = useRef<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const videoItems: VideoItem[] = [
+    {
+      id: 1,
+      videoUrl: '/media/video 4.mp4',
+      icon: Building,
+      title: 'Automated Buildings',
+      subtitle: 'AI Layer Integration',
+      description: 'An AI layer placed on top of existing Building Management Systems (BMS) optimizes HVAC, lighting, and load schedules in real-time, considering weather, occupancy, and energy tariffs.',
+      features: ['Real-time HVAC optimization', 'Weather-adaptive control', 'Occupancy-based scheduling', 'Dynamic tariff management'],
+      category: 'automated'
+    },
+    {
+      id: 2,
+      videoUrl: '/media/video 2.mp4',
+      icon: ThermometerSun,
+      title: 'Zonal Control',
+      subtitle: 'Precision Management',
+      description: 'Each zone receives specific settings for heating, ventilation, and lighting based on occupancy patterns and user behavior, maximizing comfort while minimizing waste.',
+      features: ['Individual zone settings', 'Occupancy detection', 'Behavior-based adaptation', 'Optimal resource distribution']
+    },
+    {
+      id: 3,
+      videoUrl: '/media/video 1.mp4',
+      icon: BarChart3,
+      title: 'Predictive Analytics',
+      subtitle: 'Proactive Management',
+      description: 'Early detection of anomalies, incidents, and inefficient energy consumption prevents system failures and optimizes performance before issues arise.',
+      features: ['Anomaly detection', 'Failure prevention', 'Efficiency monitoring', 'Predictive maintenance']
+    },
+    {
+      id: 4,
+      videoUrl: '/media/video 3.mp4',
+      icon: Zap,
+      title: 'Non-Automated Buildings',
+      subtitle: 'Complete Solution',
+      description: 'For buildings without existing automation, we conduct comprehensive audits, install necessary equipment, and implement AI-powered management systems for full optimization.',
+      features: ['Energy audit', 'Equipment installation', 'System integration', 'AI implementation'],
+      category: 'non-automated'
+    }
+  ];
+
+  /* OLD SMART HOME CONTENT - COMMENTED OUT
   const videoItems: VideoItem[] = [
     {
       id: 1,
@@ -52,7 +95,6 @@ const VideoCarousel = () => {
     {
       id: 4,
       videoUrl: '/media/video 3.mp4',
-      
       icon: Settings,
       title: 'Персонализация',
       subtitle: 'Ваш дом - Ваши правила.',
@@ -60,6 +102,7 @@ const VideoCarousel = () => {
       features: ['Персональные сценарии', 'Гибкие правила поведения', 'Безграничная кастомизация']
     }
   ];
+  */
 
   // Auto-rotation effect
   useEffect(() => {
@@ -192,11 +235,20 @@ const VideoCarousel = () => {
         {/* Section Header */}
         <div className="text-center mb-16 sm:mb-20 md:mb-24">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
+            <span className="text-gradient">AI-Powered</span> Energy Efficiency Solutions
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
+            Intelligent optimization for both automated and non-automated buildings
+          </p>
+          
+          {/* OLD SMART HOME HEADER - COMMENTED OUT
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
             Ваш <span className="text-gradient">Умный Дом</span> с нашим ИИ
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
             Откройте для себя возможности современных технологий умного дома
           </p>
+          */}
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -246,14 +298,14 @@ const VideoCarousel = () => {
               <button
                 onClick={() => handleNavigation('prev')}
                 className="w-12 h-12 rounded-full glass-strong border border-glass-border/30 flex items-center justify-center hover:bg-primary/10 transition-all duration-300 group"
-                aria-label="Предыдущее видео"
+                aria-label="Previous"
               >
                 <ChevronLeft className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
               </button>
               <button
                 onClick={() => handleNavigation('next')}
                 className="w-12 h-12 rounded-full glass-strong border border-glass-border/30 flex items-center justify-center hover:bg-primary/10 transition-all duration-300 group"
-                aria-label="Следующее видео"
+                aria-label="Next"
               >
                 <ChevronRight className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
               </button>
@@ -262,7 +314,7 @@ const VideoCarousel = () => {
             {/* Mobile Swipe Hint */}
             <div className="sm:hidden text-center mt-4">
               <p className="text-xs text-foreground-muted">
-                Проведите пальцем влево или вправо для смены видео
+                Swipe left or right to change videos
               </p>
             </div>
 
@@ -280,7 +332,7 @@ const VideoCarousel = () => {
                       ? 'bg-primary w-6' 
                       : 'bg-foreground-muted/30 hover:bg-foreground-muted/50'
                   }`}
-                  aria-label={`Перейти к видео ${index + 1}`}
+                  aria-label={`Go to video ${index + 1}`}
                 />
               ))}
             </div>
@@ -344,7 +396,7 @@ const VideoCarousel = () => {
             {/* Mobile Swipe Hint for Text */}
             <div className="sm:hidden text-center">
               <p className="text-xs text-foreground-muted">
-                Проведите пальцем влево или вправо по тексту для смены контента
+                Swipe left or right on text to change content
               </p>
             </div>
 

@@ -17,12 +17,7 @@ const Hero = () => {
       {/* Spline 3D Viewer - Responsive sizing and positioning */}
       {/* All devices: Robot positioned at bottom */}
       <div className="absolute inset-0 flex items-end justify-center z-20">
-        <div className="w-full sm:w-full h-[500px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl sm:translate-x-0 lg:translate-y-36 xl:translate-y-36">
-          <spline-viewer 
-            url="https://prod.spline.design/FGHilIWJTrU0w1aP/scene.splinecode"
-            style={{width: '100%', height: '100%', opacity: '0.90'}}
-          />
-        </div>
+
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-start sm:justify-center min-h-screen pt-60 sm:pt-0">
@@ -37,11 +32,12 @@ const Hero = () => {
           />
         </div>
         
+        {/* Updated Tagline */}
+        <p className="text-xl md:text-2xl text-foreground-muted max-w-3xl mx-auto mb-12 leading-relaxed">
+          AI-Powered Energy Optimization for Commercial Buildings
+        </p>
 
-      
-        
- 
-        {/*
+        {/* OLD SMART HOME TEXT - COMMENTED OUT
         <p className="text-xl md:text-2xl text-foreground-muted max-w-3xl mx-auto mb-12 leading-relaxed">
           Превратите своё жилое пространство в адаптивную среду, которая понимает, 
           изучает и служит вам через бесшовную интеграцию ИИ.
@@ -90,8 +86,8 @@ const Hero = () => {
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 right-3 sm:right-4 md:right-6 lg:right-8 z-30">
         <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 glass-strong rounded-full text-xs sm:text-sm text-foreground backdrop-blur-lg border border-primary/20" style={{background: 'rgba(0,0,0,0.6)'}}>
           <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-pulse" />
-          <span className="hidden xs:inline sm:hidden md:inline">Your Friendly Home Assistant</span>
-          <span className="inline xs:hidden sm:inline md:hidden">Your Friendly Home Assistant</span>
+          <span className="hidden xs:inline sm:hidden md:inline">Intelligent Building Management</span>
+          <span className="inline xs:hidden sm:inline md:hidden">Smart HVAC Control</span>
         </div>
       </div>
     </section>

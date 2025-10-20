@@ -106,12 +106,29 @@ const IntegrationsSection = () => {
         {/* Header */}
         <div className="text-center mb-16 sm:mb-20 md:mb-24">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
+            Complete <span className="text-gradient">Integration</span>
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
+            Compatible with major BMS systems and building automation protocols in the market
+          </p>
+          
+          {/* OLD SMART HOME TEXT - COMMENTED OUT
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
             Полная <span className="text-gradient">Интеграция</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
             ADAM работает с лучшими в своем классе технологиями умного дома,
             обеспечивая беспрецедентную совместимость и функциональность
           </p>
+          
+          OLD VERSION WITH TIMELINE:
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
+            Your Commercial Building, Fully Optimized in 2-3 Weeks
+          </p>
+          <p className="text-base sm:text-lg text-foreground-muted max-w-3xl mx-auto mt-4">
+            Contact us today for a 1-week energy audit. Our AI-powered system will be fully operational in your building within 2-3 weeks, integrating seamlessly with industry-leading technologies.
+          </p>
+          */}
         </div>
 
         {/* Scrolling Logos Container */}

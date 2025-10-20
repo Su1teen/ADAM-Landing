@@ -29,10 +29,18 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
+    { label: "Features", href: "#features" },
+    { label: "Technology", href: "#technology" },
+    { label: "Contact us", href: "#contact" }
+  ];
+
+  /* OLD RUSSIAN NAV ITEMS - COMMENTED OUT
+  const navItems = [
     { label: "Возможности", href: "#features" },
     { label: "Технологии", href: "#technology" },
     { label: "Контакты", href: "#contact" }
   ];
+  */
 
   return (
     <>
@@ -68,7 +76,19 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop CTA - Only "Связаться с нами" */}
+          {/* Desktop CTA - Contact Us Button */}
+          <div className="hidden lg:flex items-center">
+            <Button 
+              variant="gradient" 
+              size="sm" 
+              className="bg-white text-black hover:bg-white/90 text-sm"
+              onClick={() => setIsContactFormOpen(true)}
+            >
+              Contact Us
+            </Button>
+          </div>
+
+          {/* OLD RUSSIAN BUTTON - COMMENTED OUT
           <div className="hidden lg:flex items-center">
             <Button 
               variant="gradient" 
@@ -79,6 +99,7 @@ const Navigation = () => {
               Связаться с нами
             </Button>
           </div>
+          */}
 
           {/* Mobile/Tablet Menu Button */}
           <div className="flex items-center lg:hidden">
@@ -126,7 +147,7 @@ const Navigation = () => {
                     setIsContactFormOpen(true);
                   }}
                 >
-                  Связаться с нами
+                  Contact Us
                 </Button>
               </div>
             </div>

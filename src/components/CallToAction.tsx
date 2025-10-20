@@ -6,10 +6,18 @@ import ContactForm from "./ContactForm";
 const CallToAction = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const benefits = [
+    "1-week comprehensive energy audit",
+    "Professional installation included", 
+    "24/7 system monitoring & support"
+  ];
+
+  /* OLD SMART HOME BENEFITS - COMMENTED OUT
+  const benefits = [
     "30-дневная бесплатная пробная версия",
     "Профессиональная установка включена", 
     "Поддержка клиентов 24/7"
   ];
+  */
 
   return (
     <section id="smart-home" className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 lg:px-8">
@@ -17,17 +25,26 @@ const CallToAction = () => {
         {/* Main CTA */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
+            Your Commercial <span className="text-gradient">Building</span>
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
+            Get your building optimized in just 2-3 weeks. Contact us for a 1-week energy audit and start saving today.
+          </p>
+          
+          {/* OLD SMART HOME TEXT - COMMENTED OUT
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
             Ваш <span className="text-gradient">Умный</span> Дом
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
             Присоединяйтесь к более чем 50,000 умных систем, уже испытывающих будущее домашней автоматизации и персональных ассистентов на базе ИИ.
           </p>
+          */}
           
           <div className="glass-strong rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
               {/* Left: Benefits */}
               <div className="space-y-4 sm:space-y-6 order-2 md:order-1">
-                <h3 className="text-2xl sm:text-3xl font-light mb-6 sm:mb-8">Что вы получаете:</h3>
+                <h3 className="text-2xl sm:text-3xl font-light mb-6 sm:mb-8">What You Get:</h3>
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center gap-3 sm:gap-4">
                     <div className="w-5 sm:w-6 h-5 sm:h-6 relative flex items-center justify-center overflow-hidden group flex-shrink-0">
@@ -53,9 +70,17 @@ const CallToAction = () => {
                 
                 <div className="pt-4 sm:pt-6">
                   <div className="text-sm sm:text-base text-foreground-muted">
+                    Ready to optimize your building? Contact us and our team will reach out within 24 hours to schedule your energy audit.
+                  </div>
+                </div>
+                
+                {/* OLD SMART HOME TEXT - COMMENTED OUT
+                <div className="pt-4 sm:pt-6">
+                  <div className="text-sm sm:text-base text-foreground-muted">
                     Подберите подходящего для вас ИИ ассистента для себя, и для умного дома. Оставьте контакты и наши операторы свяжутся с вами в течении 10 минут. 
                   </div>
                 </div>
+                */}
               </div>
               
               {/* Right: Action */}
@@ -66,7 +91,7 @@ const CallToAction = () => {
                   className="w-full group text-base sm:text-lg h-14 sm:h-16"
                   onClick={() => setIsContactFormOpen(true)}
                 >
-                  Связаться с нами
+                  Contact Us
                   <ArrowRight className="w-5 sm:w-6 h-5 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
               
@@ -78,6 +103,25 @@ const CallToAction = () => {
         </div>
 
         {/* Social Proof */}
+        <div className="text-center">
+          <div className="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto">
+            <div className="flex justify-center">
+              <div className="grid grid-cols-2 gap-8 sm:gap-12 md:gap-16">
+
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-light text-gradient mb-1 sm:mb-2">Up to 45%</div>
+                  <div className="text-xs sm:text-sm text-foreground-muted">In Energy Savings</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-light text-gradient mb-1 sm:mb-2">24/7</div>
+                  <div className="text-xs sm:text-sm text-foreground-muted">Support</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* OLD SMART HOME STATS - COMMENTED OUT
         <div className="text-center">
           <div className="glass rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto">
             <div className="flex justify-center">
@@ -98,6 +142,7 @@ const CallToAction = () => {
             </div>
           </div>
         </div>
+        */}
       </div>
       
       {/* Contact Form Modal */}

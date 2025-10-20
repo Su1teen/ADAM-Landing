@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import EnergyStatistics from "@/components/EnergyStatistics";
+import MobileAppShowcase from "@/components/MobileAppShowcase";
 import FeatureSpotlight from "@/components/FeatureSpotlight";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import Technology from "@/components/Technology";
@@ -25,9 +27,18 @@ const Index = () => {
       <Navigation />
       <Hero />
       
-      <VideoCarousel />
+      {/* Energy Challenge Statistics */}
+      <EnergyStatistics />
       
-      <VoiceAssistantSection />
+      {/* AI-Powered Energy Solutions - Mobile App Showcase */}
+      <MobileAppShowcase />
+      
+      {/* OLD VIDEO CAROUSEL - REPLACED WITH MOBILE APP SHOWCASE
+      <VideoCarousel />
+      */}
+      
+      {/* EVA Voice Assistant Section - Commented Out */}
+      {/* <VoiceAssistantSection /> */}
       
       {/* Individual Feature Spotlights - Much more breathing room */}
       {/*

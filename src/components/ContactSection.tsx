@@ -8,11 +8,20 @@ const ContactSection = () => {
         {/* Header */}
         <div className="text-center mb-16 sm:mb-20 md:mb-24">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
+            Visit Us in <span className="text-gradient">Astana</span>
+          </h2>
+          <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
+            Discover the future of building energy management in our showroom.
+          </p>
+          
+          {/* OLD SMART HOME TEXT - COMMENTED OUT
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8">
             Посетите Нас в <span className="text-gradient">Астане</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-foreground-muted max-w-4xl mx-auto">
             Познакомьтесь с будущим умного дома в нашем Шоуруме. 
           </p>
+          */}
         </div>
 
         {/* Contact Info and Map Grid */}
@@ -28,8 +37,8 @@ const ContactSection = () => {
                   <Building className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-light text-foreground">Головной Офис</h3>
-                  <p className="text-foreground-muted">Showroom компании ADAM х Smart Group Kazakhstan.</p>
+                  <h3 className="text-2xl sm:text-3xl font-light text-foreground">Head Office</h3>
+                  <p className="text-foreground-muted">ADAM x Smart Group Kazakhstan Showroom</p>
                 </div>
               </div>
               
@@ -37,11 +46,11 @@ const ContactSection = () => {
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-accent-blue flex-shrink-0 mt-1" />
                   <div>
-                    <div className="text-lg font-medium text-foreground mb-1">Адрес</div>
+                    <div className="text-lg font-medium text-foreground mb-1">Address</div>
                     <div className="text-foreground-muted">
                       The Smart Group Kazakhstan<br />
-                      Туран 57/3, Астана<br />
-                      Kazakhstan, Astana, Turan 57/3
+                      Turan 57/3, Astana<br />
+                      Kazakhstan
                     </div>
                   </div>
                 </div>
@@ -49,7 +58,7 @@ const ContactSection = () => {
                 <div className="flex items-start gap-4">
                   <Phone className="w-6 h-6 text-accent-blue flex-shrink-0 mt-1" />
                   <div>
-                    <div className="text-lg font-medium text-foreground mb-1">Телефон</div>
+                    <div className="text-lg font-medium text-foreground mb-1">Phone</div>
                     <div className="text-foreground-muted">+7 771 384 1361</div>
                   </div>
                 </div>
@@ -62,9 +71,9 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                {/* Наши социальные сети */}
+                {/* Social Media Links */}
                 <div className="mt-8">
-                  <h3 className="text-lg font-medium text-foreground mb-4">Наши социальные сети:</h3>
+                  <h3 className="text-lg font-medium text-foreground mb-4">Our Social Media:</h3>
                   <div className="flex items-center gap-6">
                     <a href="https://www.instagram.com/adamglobaltech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                       <Instagram className="w-6 h-6 text-accent-blue hover:text-primary transition-colors" />
@@ -102,7 +111,7 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Additional Info */}
+        {/* OLD WELCOME SECTION - REMOVED FOR HVAC FOCUS
         <div className="mt-16 sm:mt-20 md:mt-24 text-center">
           <div className="glass rounded-2xl p-8 sm:p-10 md:p-12 max-w-4xl mx-auto">
             <h4 className="text-2xl sm:text-3xl font-light mb-6 text-foreground">
@@ -116,6 +125,7 @@ const ContactSection = () => {
             </p>
           </div>
         </div>
+        */}
       </div>
     </section>
   );

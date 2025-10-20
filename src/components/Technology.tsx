@@ -29,6 +29,16 @@ const Technology = () => {
               
               <div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
+                  <span className="text-gradient">Security of Your</span><br />Data
+                </h3>
+                <p className="text-lg sm:text-xl text-foreground-muted leading-relaxed mb-6 sm:mb-8">
+                  Your building's energy management is secured with multi-layered protection. 
+                  We employ robust encryption methods and strict security protocols to ensure 
+                  complete confidentiality of your data and protection of building infrastructure.
+                </p>
+                
+                {/* OLD SMART HOME TEXT - COMMENTED OUT
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
                   <span className="text-gradient">Безопасность Ваших</span><br />Данных
                 </h3>
                 <p className="text-lg sm:text-xl text-foreground-muted leading-relaxed mb-6 sm:mb-8">
@@ -36,28 +46,29 @@ const Technology = () => {
                   Мы применяем надежные методы шифрования и строгие протоколы безопасности для обеспечения 
                   полной конфиденциальности ваших данных и защиты домашней инфраструктуры.
                 </p>
+                */}
               </div>
 
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
-                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Профессиональное Шифрование</div>
-                    <div className="text-sm sm:text-base text-foreground-muted">Применение стандарта AES-256 обеспечивает максимальную защиту всех данных вашего умного дома</div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Professional Encryption</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">AES-256 standard ensures maximum protection of all building management data</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
-                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Локальная Обработка Данных</div>
-                    <div className="text-sm sm:text-base text-foreground-muted">Конфиденциальная информация обрабатывается исключительно в пределах вашего дома, исключая внешние утечки</div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Local Data Processing</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Sensitive information is processed exclusively within your building, preventing external leaks</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
-                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Система Нулевого Доверия</div>
-                    <div className="text-sm sm:text-base text-foreground-muted">Каждое подключение к вашей домашней сети проходит строгую проверку подлинности перед получением доступа</div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Zero Trust System</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Every connection to your building network undergoes strict authentication before access is granted</div>
                   </div>
                 </div>
               </div>
@@ -71,31 +82,31 @@ const Technology = () => {
               
               <div className="relative z-10 text-center">
                 <Shield className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 text-primary mx-auto mb-6 sm:mb-8" />
-                <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">Центр Безопасности</h4>
+                <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">Security Center</h4>
                 
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
-                    <div className="text-xl sm:text-2xl font-light text-gradient mb-1">256-бит</div>
-                    <div className="text-xs text-foreground-muted">Шифрование</div>
+                    <div className="text-xl sm:text-2xl font-light text-gradient mb-1">256-bit</div>
+                    <div className="text-xs text-foreground-muted">Encryption</div>
                   </div>
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
                     <div className="text-xl sm:text-2xl font-light text-gradient mb-1">0</div>
-                    <div className="text-xs text-foreground-muted">Утечек</div>
+                    <div className="text-xs text-foreground-muted">Breaches</div>
                   </div>
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
-                    <div className="text-xl sm:text-2xl font-light text-gradient mb-1">96%</div>
-                    <div className="text-xs text-foreground-muted">Аптайм</div>
+                    <div className="text-xl sm:text-2xl font-light text-gradient mb-1">99.9%</div>
+                    <div className="text-xs text-foreground-muted">Uptime</div>
                   </div>
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
                     <div className="text-xl sm:text-2xl font-light text-gradient mb-1">24/7</div>
-                    <div className="text-xs text-foreground-muted">Мониторинг</div>
+                    <div className="text-xs text-foreground-muted">Monitoring</div>
                   </div>
                 </div>
                 
                 <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4">
                   <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <span className="text-xs sm:text-sm">Мониторинг Угроз</span>
-                    <span className="text-xs text-accent-blue">Активно</span>
+                    <span className="text-xs sm:text-sm">Threat Monitoring</span>
+                    <span className="text-xs text-accent-blue">Active</span>
                   </div>
                   <div className="w-full bg-glass-bg rounded-full h-2">
                     <div className="bg-gradient-to-r from-accent-blue to-accent-cyan h-2 rounded-full w-full"></div>
@@ -114,14 +125,46 @@ const Technology = () => {
               
               <div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
+                  <span className="text-gradient">Comprehensive</span><br />Approach
+                </h3>
+                <p className="text-lg sm:text-xl text-foreground-muted leading-relaxed mb-6 sm:mb-8">
+                  Seamless integration with lighting, heating, and ventilation systems—all in one solution for building energy efficiency and comfort.
+                </p>
+                
+                {/* OLD HYBRID AI TEXT - COMMENTED OUT
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-6">
                   <span className="text-gradient">Гибридная ИИ</span><br />Обработка
                 </h3>
                 <p className="text-lg sm:text-xl text-foreground-muted leading-relaxed mb-6 sm:mb-8">
                   Умная система распределения вычислений. ИИ мгновенно реагирует на ежедневные потребности дома через локальную обработку, а сложные аналитические задачи решает с помощью облачных технологий.
                 </p>
+                */}
               </div>
 
               <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-purple to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
+                  <div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Zonal Control</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Zonal management based on occupancy and behavior: Each zone receives its own specific settings for heating, ventilation, and lighting</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-purple to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
+                  <div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">Forecasting</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Early detection of anomalies, incidents, and inefficient energy consumption to prevent system failures</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-purple to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
+                  <div>
+                    <div className="text-base sm:text-lg font-medium mb-1 sm:mb-2">System Integration</div>
+                    <div className="text-sm sm:text-base text-foreground-muted">Complete integration with existing BMS infrastructure for unified building management</div>
+                  </div>
+                </div>
+                
+                {/* OLD HYBRID AI FEATURES - COMMENTED OUT
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent-purple to-accent-cyan mt-2 sm:mt-3 flex-shrink-0" />
                   <div>
@@ -143,6 +186,7 @@ const Technology = () => {
                     <div className="text-sm sm:text-base text-foreground-muted">Основные функции работают даже при отсутствии интернета</div>
                   </div>
                 </div>
+                */}
               </div>
             </div>
 
@@ -156,13 +200,13 @@ const Technology = () => {
                 <div className="flex items-center justify-center w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-white rounded-full mx-auto mb-6 sm:mb-8 animate-glow-pulse">
                   <Cpu className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-black" />
                 </div>
-                <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">Производительность ИИ</h4>
+                <h4 className="text-xl sm:text-2xl font-light mb-4 sm:mb-6">System Performance</h4>
                 
                 <div className="space-y-3 sm:space-y-4">
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-left">
                     <div className="flex justify-between items-center mb-1 sm:mb-2">
-                      <span className="text-xs sm:text-sm">Скорость Локальной Обработки</span>
-                      <span className="text-accent-purple text-xs sm:text-sm">47мс средн.</span>
+                      <span className="text-xs sm:text-sm">Energy Optimization</span>
+                      <span className="text-accent-purple text-xs sm:text-sm">Active</span>
                     </div>
                     <div className="w-full bg-glass-bg rounded-full h-2">
                       <div className="bg-gradient-to-r from-accent-purple to-accent-cyan h-2 rounded-full w-5/6"></div>
@@ -171,8 +215,8 @@ const Technology = () => {
                   
                   <div className="glass rounded-lg sm:rounded-xl p-3 sm:p-4 text-left">
                     <div className="flex justify-between items-center mb-1 sm:mb-2">
-                      <span className="text-xs sm:text-sm">Облачная Синхронизация</span>
-                      <span className="text-accent-cyan text-xs sm:text-sm">В реальном времени</span>
+                      <span className="text-xs sm:text-sm">HVAC Efficiency</span>
+                      <span className="text-accent-cyan text-xs sm:text-sm">Real-time</span>
                     </div>
                     <div className="w-full bg-glass-bg rounded-full h-2">
                       <div className="bg-gradient-to-r from-accent-cyan to-accent-purple h-2 rounded-full w-full animate-pulse"></div>
@@ -181,12 +225,12 @@ const Technology = () => {
                   
                   <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
                     <div className="text-center">
-                      <div className="text-xl sm:text-2xl font-light text-gradient">8K+</div>
-                      <div className="text-xs text-foreground-muted">Решений/сек</div>
+                      <div className="text-xl sm:text-2xl font-light text-gradient">35%</div>
+                      <div className="text-xs text-foreground-muted">Energy Saved</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-xl sm:text-2xl font-light text-gradient">94%</div>
-                      <div className="text-xs text-foreground-muted">Точность</div>
+                      <div className="text-xl sm:text-2xl font-light text-gradient">98%</div>
+                      <div className="text-xs text-foreground-muted">Accuracy</div>
                     </div>
                   </div>
                 </div>

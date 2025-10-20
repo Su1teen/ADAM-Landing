@@ -163,11 +163,7 @@ const VoiceAgent3D = () => {
                 boxShadow: isListening ? '0 0 50px rgba(59, 130, 246, 0.5)' : 'none'
               }}
             >
-              <spline-viewer 
-                url="https://prod.spline.design/2DQ7q6F6eF8nAlzd/scene.splinecode"
-                className="w-full h-full"
-                style={{ background: 'transparent' }}
-              />
+           
               
               {/* Voice Agent Status Overlay */}
               <div className="absolute top-6 left-6 glass rounded-2xl p-4 border border-glass-border/30 pointer-events-none">
